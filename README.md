@@ -92,4 +92,4 @@ Made with passion for technology and robotics by:
 
 | **Notebook:** | Chrome OS Flex running on a 128GB pendrive! 🔋 |
 
-| **LINK:** | [TechBuddy Nano link] (https://techbuddy-nano-5.onrender.com)
+| **LINK:** | [TechBuddy Nano link](https://techbuddy-nano-5.onrender.com)
