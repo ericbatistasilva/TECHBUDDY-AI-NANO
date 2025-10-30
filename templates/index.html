@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBuddy Nano - Assistente IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Animação de fundo -->
+    <div class="background-animation">
+<div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>🤖 Bem-vindo ao TechBuddy Nano</h2>
+            <p>Digite seu nome para começar</p>
+            <input type="text" id="userName" placeholder="Seu nome..." maxlength="50">
+            <button onclick="saveUserName()">Entrar</button>
+        </div>
+    </div>
+
+    <!-- Modal Sobre -->
+    <div id="aboutModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeAbout()">&times;</span>
+            <h2>🤖 TechBuddy Nano</h2>
+            <p><strong>Versão:</strong> 1.0.0</p>
+            <p><strong>Modelo:</strong> GPT-5 via CometAPI</p>
+            <p><strong>Recursos:</strong></p>
+            <ul>
+                <li>🌐 Data de Lançamento: 30 de outubro de 2025</li>
+                <li>👦 Dono: Eric Batista Silva</li>
+                <li>👨‍💻 Desenvolvido: Eric Batista Silva </li>
+                <li>✨ Interface moderna e transparente</li>
+                <li>💾 Memória de longo prazo</li>
+                <li>🔊 Síntese de voz (TTS)</li>
+                <li>💬 Histórico de conversas salvo</li>
+                <li>🎨 Animações suaves</li>
+            </ul>
+            <p><strong>Desenvolvido com:</strong> Flask, JavaScript, CSS3</p>
+        </div>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">TechBuddy Nano</span>
+                </div>
+                <div class="header-info">
+                    <span id="userGreeting" class="user-greeting"></span>
+                    <button class="icon-btn" onclick="openAbout()" title="Sobre">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" onclick="newChat()" title="Novo Chat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Área de Chat -->
+        <div class="chat-container">
+            <div id="chatMessages" class="chat-messages">
+                <div class="welcome-message">
+                    <h1>👋 Olá! Eu sou o TechBuddy Nano</h1>
+                    <p>Seu assistente virtual inteligente. Como posso ajudar você hoje?</p>
+                </div>
+            </div>
+
+            <!-- Área de Input -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Digite sua mensagem..."
+                        rows="1"
+                        onkeypress="handleKeyPress(event)"
+                    ></textarea>
+                    <button class="icon-btn voice-btn" onclick="toggleVoice()" title="Ativar/Desativar Voz">
+                        <svg id="voiceIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </button>
+                    <button class="send-btn" onclick="sendMessage()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="status-bar">
+                    <span id="statusText">Pronto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
